@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Invitación  a mi grado</title>
+  <title>Invitación a mi grado</title>
 
-  <!-- Fuente Great Vibes -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
   <style>
@@ -15,6 +14,7 @@
       background: #000;
       font-family: 'Great Vibes', cursive;
       color: #f5e3a1;
+      overflow-x: hidden;
     }
 
     /* Pantalla 1 */
@@ -24,13 +24,15 @@
       align-items:center;
       justify-content:center;
       height:100vh;
+      text-align:center;
       cursor:pointer;
     }
-    #pantalla-sobre img { width:220px;  }
+
+    #pantalla-sobre img { width:230px; }
     #pantalla-sobre p {
-      font-size:36px;
-      color:#e8d18f;
+      font-size:34px;
       margin-top:18px;
+      color:#e8d18f;
       text-shadow:0 0 10px rgba(255,215,0,0.7);
     }
 
@@ -44,6 +46,7 @@
       opacity:0;
       transition:opacity 0.8s ease;
     }
+
     #sobre-abierto img { width:260px; }
 
     /* Pantalla 3 */
@@ -54,28 +57,23 @@
       min-height:100vh;
       opacity:0;
       transition:opacity 1s ease;
-      
+      position:relative;
     }
 
-    /* 🔥 TODOS LOS GIFS IGUAL DE GRANDES */
+    /* GIFS igual tamaño */
     img.principal {
-      width: 100%;
-      max-width: 360px;
-      height: auto;
-      margin-bottom: 30px;
-      border-radius: 14px;
-      
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
+      width:100%;
+      max-width:360px;
+      height:auto;
+      margin:0 auto 30px auto;
+      border-radius:14px;
+      display:block;
     }
 
     h1.titulo {
       font-size:48px;
       margin-top:5px;
-      color:#f5e3a1;
       text-shadow:0 0 18px rgba(255,215,0,0.9);
-      
     }
 
     a.ubicacion {
@@ -83,7 +81,7 @@
       padding:10px 20px;
       border-radius:14px;
       font-size:26px;
-      background: #000;
+      background:#000;
       color:#f5e3a1;
       border:2px solid #d4af37;
       text-decoration:none;
@@ -92,101 +90,17 @@
       max-width:320px;
       margin-left:auto;
       margin-right:auto;
-      
       transition:0.2s ease;
     }
-    a.ubicacion:hover {
-      transform:scale(1.07);
-      
-    }
 
-    /* Animaciones adicionales */
-    /* Brillo dorado animado en bordes de los GIF */
-    img.principal {
-      position: relative;
-      z-index: 2;
-    }
-    img.principal::after {
-      content: "";
-      position: absolute;
-      top: -3px;
-      left: -3px;
-      right: -3px;
-      bottom: -3px;
-      border-radius: 16px;
-      border: 2px solid rgba(255,215,0,0.4);
-      
-      pointer-events: none;
-    }
+    a.ubicacion:hover { transform:scale(1.07); }
 
-    
-      50% {  }
-      100% {  }
-    }
+    /* Quitar bordes fantasmas */
+    img { display:block; border:0; background:transparent; }
 
-    /* Destello suave pasando por la invitación */
-    #contenido::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.15), transparent);
-      
-      pointer-events: none;
-    }
-
-    
-      60% { left: 120%; }
-      100% { left: 120%; }
-    }
-
-    /* Partículas doradas cayendo (glitter) */
-    body::after {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      background-image: radial-gradient(circle, rgba(255,215,0,0.9) 2px, transparent 2px);
-      background-size: 3px 3px;
-      
-      opacity: 0.35;
-    }
-
-    
-      100% { transform: translateY(110%); }
-    }
-
-    /* Animación en los botones al tocar */
-    a.ubicacion:active {
-      transform: scale(0.94);
-      
-    }
-
-    /* Rebote suave del título */
-    h1.titulo {
-      
-      transform-origin: center;
-    }
-
-    
-      50% { transform: scale(1.07); }
-    }
-
-    /* Animaciones */ */
-     to {opacity:1; transform: translateY(0);} }
-    50%{transform:scale(1.06);}100%{transform:scale(1);} }
-     to {text-shadow:0 0 22px gold;} }
-    50%{transform:scale(1.06);}100%{transform:scale(1);} }
-     to {text-shadow:0 0 22px gold;} }
-    img { display:block; border:0; margin:0; padding:0; background:transparent; }
-  .gif-container, .gif, div img { border:0 !important; margin:0 !important; padding:0 !important; background:transparent !important; }
-</style>
+  </style>
 </head>
+
 <body>
 
   <!-- PANTALLA 1 -->
@@ -217,56 +131,60 @@
   </audio>
 
   <script>
-    const pantallaSobre = document.getElementById('pantalla-sobre');
-    const sobreAbierto = document.getElementById('sobre-abierto');
-    const contenido = document.getElementById('contenido');
-    const audio = document.getElementById('music');
-    const gif1 = document.getElementById('gif1');
-    const gif2 = document.getElementById('gif2');
+    const pantallaSobre = document.getElementById("pantalla-sobre");
+    const sobreAbierto = document.getElementById("sobre-abierto");
+    const contenido = document.getElementById("contenido");
+    const audio = document.getElementById("music");
+    const gif1 = document.getElementById("gif1");
+    const gif2 = document.getElementById("gif2");
 
-    /* 🔇 Apagar música al salir de la página */
+    /* Pausar música al cambiar de pestaña */
     document.addEventListener("visibilitychange", () => {
-      if (document.hidden) {
-        audio.pause();
-      }
+      if (document.hidden) audio.pause();
     });
 
-    pantallaSobre.onclick = function() {
+    pantallaSobre.onclick = function () {
       audio.volume = 0.25;
-      audio.play().catch(()=>{});
+      audio.play().catch(() => {});
 
-      pantallaSobre.style.display="none";
+      pantallaSobre.style.display = "none";
 
-      sobreAbierto.style.display="flex";
-      requestAnimationFrame(()=>{
+      sobreAbierto.style.display = "flex";
+      requestAnimationFrame(() => {
         sobreAbierto.style.opacity = 1;
       });
 
-      setTimeout(()=>{
+      setTimeout(() => {
         sobreAbierto.style.opacity = 0;
-        setTimeout(()=>{
-          sobreAbierto.style.display="none";
-          contenido.style.display="block";
-          requestAnimationFrame(()=>{
+        setTimeout(() => {
+          sobreAbierto.style.display = "none";
+          contenido.style.display = "block";
+
+          requestAnimationFrame(() => {
             contenido.style.opacity = 1;
 
-            setTimeout(()=>{
+            setTimeout(() => {
               gif1.style.display = "none";
               gif2.style.display = "block";
             }, 4000);
 
           });
-        },500);
-      },2300);
+        }, 500);
+      }, 2300);
     };
 
-    document.body.addEventListener('click', function playOnce(){
-      if (audio.paused) audio.play().catch(()=>{});
-    }, {once:true});
+    document.body.addEventListener(
+      "click",
+      function playOnce() {
+        if (audio.paused) audio.play().catch(() => {});
+      },
+      { once: true }
+    );
   </script>
 
 </body>
 </html>
+
 
 
 
