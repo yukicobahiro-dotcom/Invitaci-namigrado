@@ -23,7 +23,6 @@
       --luz-dorada: rgba(230, 170, 60, 0.9);
     }
 
-    /* EFECTO BRILLO */
     .brillo {
       animation: brillo 2.5s infinite alternate;
     }
@@ -32,7 +31,6 @@
       100% { text-shadow: 0 0 20px var(--dorado-brillante); }
     }
 
-    /* PANTALLA 1 */
     #pantalla-sobre {
       display:flex;
       flex-direction:column;
@@ -50,7 +48,6 @@
       color: var(--dorado-brillante);
     }
 
-    /* PANTALLA 2 */
     #sobre-abierto {
       display:none;
       flex-direction:column;
@@ -62,7 +59,6 @@
     }
     #sobre-abierto img { width:300px; filter: drop-shadow(0 0 12px var(--luz-dorada)); }
 
-    /* PANTALLA 3 */
     #contenido {
       display:none;
       text-align:center;
@@ -71,6 +67,11 @@
       opacity:0;
       transition:opacity 1s ease;
       position:relative;
+
+      /* 🔥 GIFS CENTRADOS EN PC Y CELULAR */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     img.principal {
@@ -130,11 +131,9 @@
     <a class="ubicacion" href="https://maps.app.goo.gl/6w18dS3E4MEETYC56" target="_blank">📍 Ubicación Ceremonia</a>
     <a class="ubicacion" href="https://maps.app.goo.gl/9JTYoYQoaL1y5rwD8" target="_blank">🎉 Ubicación Recepción</a>
 
-    <!-- BOTÓN DE CONFIRMACIÓN -->
     <a class="confirmar" href="https://wa.me/573219800125?text=¡Ahí%20estaré!" target="_blank">💛 Confirmar Asistencia</a>
   </div>
 
-  <!-- AUDIO -->
   <audio id="music" loop>
     <source src="Adventure - Declan DP (Free No Copyright Music).mp3" type="audio/mpeg">
   </audio>
@@ -192,16 +191,23 @@
       ✨ Cupos restantes para la recepción ✨
     </p>
 
-    <!-- Reemplazar el LINK_PUBLICADO_DE_TU_HOJA cuando lo tengas -->
-    <iframe src="https://docs.google.com/spreadsheets/d/1j-5l2-qh4UzXl3SI1MKzN3yoiepFrr0EzQ77PP8ThWo/edit?usp=sharing"
-            width="320"
-            height="90"
-            style="border:2px solid #d9a14a; border-radius:14px; background:black; box-shadow:0 0 14px rgba(230,170,60,0.6);">
+    <iframe 
+      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ3PnWHk-oabdml20jHrw9F8Cye-wEaJ4wmiT6juiQLerxwbWWwIGmIpe4T5iElatMTuajQpueEl295/pubhtml?gid=0&single=true"
+      width="330"
+      height="160"
+      style="
+        border:2px solid #d9a14a;
+        border-radius:14px;
+        background:black;
+        box-shadow:0 0 14px rgba(230,170,60,0.6);
+        overflow:hidden;
+      ">
     </iframe>
   </div>
 
 </body>
 </html>
+
 
 
 
