@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mi Invitación</title>
+  <title>Invitación Especial</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
@@ -17,14 +17,22 @@
       overflow-x: hidden;
     }
 
-    /* Tonos dorado-cobre */
     :root {
       --dorado-brillante: #e6b768;
       --dorado-cobre: #d9a14a;
       --luz-dorada: rgba(230, 170, 60, 0.9);
     }
 
-    /* Pantalla 1 */
+    /* EFECTO BRILLO */
+    .brillo {
+      animation: brillo 2.5s infinite alternate;
+    }
+    @keyframes brillo {
+      0% { text-shadow: 0 0 6px var(--luz-dorada); }
+      100% { text-shadow: 0 0 20px var(--dorado-brillante); }
+    }
+
+    /* PANTALLA 1 */
     #pantalla-sobre {
       display:flex;
       flex-direction:column;
@@ -35,15 +43,14 @@
       cursor:pointer;
     }
 
-    #pantalla-sobre img { width:230px; }
+    #pantalla-sobre img { width:260px; filter: drop-shadow(0 0 12px var(--luz-dorada)); }
     #pantalla-sobre p {
-      font-size:34px;
+      font-size:40px;
       margin-top:18px;
       color: var(--dorado-brillante);
-      text-shadow:0 0 10px var(--luz-dorada);
     }
 
-    /* Pantalla 2 */
+    /* PANTALLA 2 */
     #sobre-abierto {
       display:none;
       flex-direction:column;
@@ -53,10 +60,9 @@
       opacity:0;
       transition:opacity 0.8s ease;
     }
+    #sobre-abierto img { width:300px; filter: drop-shadow(0 0 12px var(--luz-dorada)); }
 
-    #sobre-abierto img { width:260px; }
-
-    /* Pantalla 3 */
+    /* PANTALLA 3 */
     #contenido {
       display:none;
       text-align:center;
@@ -67,45 +73,39 @@
       position:relative;
     }
 
-    /* GIFS tamaño */
     img.principal {
       width:100%;
-      max-width:360px;
-      height:auto;
-      margin:0 auto 30px auto;
-      border-radius:14px;
-      display:block;
+      max-width:370px;
+      border-radius:16px;
+      margin-bottom:30px;
+      filter: drop-shadow(0 0 10px var(--luz-dorada));
     }
 
-    /* Título quitado */
-    h1.titulo {
-      display:none;
-    }
-
-    a.ubicacion {
+    a.ubicacion, .confirmar {
       margin-top:20px;
-      padding:10px 20px;
-      border-radius:14px;
-      font-size:26px;
+      padding:12px 20px;
+      border-radius:18px;
+      font-size:28px;
       background:#000;
       color: var(--dorado-brillante);
       border:2px solid var(--dorado-cobre);
       text-decoration:none;
       display:block;
-      width:70%;
-      max-width:320px;
+      width:75%;
+      max-width:350px;
       margin-left:auto;
       margin-right:auto;
       transition:0.2s ease;
       text-shadow:0 0 8px var(--luz-dorada);
     }
 
-    a.ubicacion:hover { 
-      transform:scale(1.07);
-      box-shadow:0 0 14px var(--luz-dorada);
+    a.ubicacion:hover, .confirmar:hover { 
+      transform:scale(1.08);
+      box-shadow:0 0 16px var(--luz-dorada);
     }
 
     img { display:block; border:0; background:transparent; }
+
   </style>
 </head>
 
@@ -114,7 +114,7 @@
   <!-- PANTALLA 1 -->
   <div id="pantalla-sobre">
     <img src="sobre_cerrado.gif">
-    <p>Da click aquí para abrir</p>
+    <p class="brillo">Da click aquí para abrir</p>
   </div>
 
   <!-- PANTALLA 2 -->
@@ -127,10 +127,11 @@
     <img id="gif1" class="principal" src="gif1.gif">
     <img id="gif2" class="principal" src="gif2.gif" style="display:none;">
 
-    <!-- Título eliminado -->
-
     <a class="ubicacion" href="https://maps.app.goo.gl/6w18dS3E4MEETYC56" target="_blank">📍 Ubicación Ceremonia</a>
     <a class="ubicacion" href="https://maps.app.goo.gl/9JTYoYQoaL1y5rwD8" target="_blank">🎉 Ubicación Recepción</a>
+
+    <!-- BOTÓN DE CONFIRMACIÓN -->
+    <a class="confirmar" href="https://wa.me/573219800125?text=¡Ahí%20estaré!" target="_blank">💛 Confirmar Asistencia</a>
   </div>
 
   <!-- AUDIO -->
@@ -146,7 +147,6 @@
     const gif1 = document.getElementById("gif1");
     const gif2 = document.getElementById("gif2");
 
-    /* Pausar música al cambiar de pestaña */
     document.addEventListener("visibilitychange", () => {
       if (document.hidden) audio.pause();
     });
@@ -156,7 +156,6 @@
       audio.play().catch(() => {});
 
       pantallaSobre.style.display = "none";
-
       sobreAbierto.style.display = "flex";
       requestAnimationFrame(() => {
         sobreAbierto.style.opacity = 1;
@@ -167,18 +166,15 @@
         setTimeout(() => {
           sobreAbierto.style.display = "none";
           contenido.style.display = "block";
-
           requestAnimationFrame(() => {
             contenido.style.opacity = 1;
-
             setTimeout(() => {
               gif1.style.display = "none";
               gif2.style.display = "block";
             }, 4000);
-
           });
         }, 500);
-      }, 2300);
+      }, 2400);
     };
 
     document.body.addEventListener(
@@ -192,6 +188,7 @@
 
 </body>
 </html>
+
 
 
 
