@@ -81,7 +81,7 @@
       filter: drop-shadow(0 0 10px var(--luz-dorada));
     }
 
-    a.ubicacion, .confirmar {
+    a.ubicacion, .confirmar, .cupos {
       margin-top:20px;
       padding:12px 20px;
       border-radius:18px;
@@ -99,7 +99,7 @@
       text-shadow:0 0 8px var(--luz-dorada);
     }
 
-    a.ubicacion:hover, .confirmar:hover { 
+    a.ubicacion:hover, .confirmar:hover, .cupos:hover { 
       transform:scale(1.08);
       box-shadow:0 0 16px var(--luz-dorada);
     }
@@ -131,6 +131,10 @@
     <a class="ubicacion" href="https://maps.app.goo.gl/9JTYoYQoaL1y5rwD8" target="_blank">🎉 Ubicación Recepción</a>
 
     <a class="confirmar" href="https://wa.me/573219800125?text=¡Ahí%20estaré!" target="_blank">💛 Confirmar Asistencia</a>
+
+    <!-- BOTÓN DE CUPOS -->
+    <a class="cupos">✨ Cupos de recepción: 2 ✨</a>
+
   </div>
 
   <audio id="music" loop>
@@ -183,26 +187,6 @@
       { once: true }
     );
   </script>
-
-  <!-- CUPOS RESTANTES -->
-  <div style="margin-top:40px; text-align:center;">
-    <p style="font-size:32px; color:#e6b768; text-shadow:0 0 10px rgba(230,170,60,0.9); margin-bottom:10px;">
-      ✨ Cupos restantes para la recepción ✨
-    </p>
-
-    <iframe 
-      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ3PnWHk-oabdml20jHrw9F8Cye-wEaJ4wmiT6juiQLerxwbWWwIGmIpe4T5iElatMTuajQpueEl295/pubhtml"
-      width="330"
-      height="180"
-      style="
-        border:2px solid #d9a14a;
-        border-radius:14px;
-        background:black;
-        box-shadow:0 0 14px rgba(230,170,60,0.6);
-        overflow:hidden;
-      ">
-    </iframe>
-  </div>
 
 </body>
 </html>
